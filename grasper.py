@@ -1,7 +1,7 @@
 # grasper code for kicks and giggles
 
-import RoboPiLib as RPL
-import setup
+import RoboPiLib3 as RPL
+import setup3
 import pygame
 
 
@@ -20,6 +20,7 @@ clock = pygame.time.Clock()
 
 done = False
 
+pin = 0
 
 open = False
 close = False
@@ -58,10 +59,13 @@ while not done:
         screen.fill(grey)
         if open == True:
             pygame.draw.circle(screen, pink, (200, 200), 100, 0)
+            RPL.servoWrite(pin,1000)
         elif close == True:
             pygame.draw.circle(screen, blue, (200, 200), 100, 0)
+            RPL.servoWrite(pin,1700)
         else:
             pygame.draw.circle(screen, black, (200, 200), 100, 0)
+            RPL.servoWrite(pin,0)
 
 
 
